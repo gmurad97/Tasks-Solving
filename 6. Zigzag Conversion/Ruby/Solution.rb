@@ -1,36 +1,15 @@
-# Definition for singly-linked list.
-# class ListNode
-#     attr_accessor :val, :next
-#     def initialize(val = 0, _next = nil)
-#         @val = val
-#         @next = _next
-#     end
-# end
-
-# @param {ListNode} l1
-# @param {ListNode} l2
-# @return {ListNode}
-def add_two_numbers(l1, l2)
-    dummy = ListNode.new(0)
-    current = dummy
-    carry = 0
-    
-    while l1 || l2 || carry != 0
-        sum = carry
-        if l1
-            sum += l1.val
-            l1 = l1.next
+def convert(s, numRows)
+    return s if numRows == 1 || numRows >= s.length
+    rows = Array.new(numRows) { "" }
+    idx, step = 0, 1
+    s.each_char do |c|
+        rows[idx] += c
+        if idx == 0
+            step = 1
+        elsif idx == numRows - 1
+            step = -1
         end
-        if l2
-            sum += l2.val
-            l2 = l2.next
-        end
-        
-        carry = sum / 10
-        sum = sum % 10
-        current.next = ListNode.new(sum)
-        current = current.next
+        idx += step
     end
-    
-    dummy.next
+    rows.join("")
 end
