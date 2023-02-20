@@ -1,8 +1,7 @@
-public class Solution {
-    public int MySqrt(int x) {
-        long res = x;
-        while (res*res > x)
-            res = (res + x/res) / 2;
-        return (int) res;
-    }
+int MySqrt(int x)
+{
+    long result = x;
+    while (result * result > x)
+        result = (result + x / result) / 2;
+    return (int)result;
 }
