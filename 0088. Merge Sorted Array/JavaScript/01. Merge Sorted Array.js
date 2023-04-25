@@ -1,10 +1,8 @@
-function merge(nums1, m, nums2, n) {
-    return nums1 = [].concat(
-        nums1.filter((v, i) => {
-            return i < m;
-        }), nums2.filter((v, i) => {
-            return i < n;
-        })).sort((a, b) => {
-            return a - b;
-        });
+var merge = function (nums1, m, nums2, n) {
+    for (let x = m, y = 0; y < n; x++, y++) {
+        nums1[x] = nums2[y];
+    }
+    nums1.sort((a, b) => {
+        return a - b;
+    })
 };
