@@ -1,4 +1,4 @@
-var isPowerOfTwo = function (n) {
+function isPowerOfTwo(n: number): boolean {
     if (n === 0) {
         return false;
     }
